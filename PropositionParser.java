@@ -11,7 +11,7 @@ public class PropositionParser {
         String[] tokens = input.split(SPLIT_REGEX);
         System.out.println("tokens:" + Arrays.toString(tokens));
 
-        // needs https://en.wikipedia.org/wiki/Shunting_yard_algorithm:w
+        // needs Shunting yard algorithm. Either output Reverse polish or AST. https://en.wikipedia.org/wiki/Shunting_yard_algorithm:w
 
         for (String token : tokens) {
             switch (token) {
