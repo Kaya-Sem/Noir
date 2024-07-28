@@ -1,12 +1,25 @@
-# Noir ATP V1
+# Noir
 
-A basic modular implementation of an automatic theorem prover in
-Java.
+A basic automatic theorem prover in
+Java, intended for education.
 
-### Components
+## Scope
 
-1. Proof Engine - The core logic that performs the proofs.
-2. API Layer: An interface through which external applications
-   (like UIs)
-3. UI/Wrapper: The user interface or wrappers that interact with
-   the API layer to perform proof operations.
+- **sound** _(every theorem it proves is indeed a true statement within the formal system it is working within._
+- **complete** _can prove every statement that is true within the formal system._
+- _general and automatic_
+- Shows proofs step by step in human readable format
+
+## Components
+
+- General proposition parser
+- Proofchecker - check correctness of proofs
+- Interactive proof Assistant
+- JavaFX GUI
+- Graph visualisation
+
+
+## Milestones
+
+- Can solve TPTP's FOF, CNF and TF0's formulas.
+
