@@ -2,7 +2,7 @@ package noir.parsing;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class TokenizerTest {
 
@@ -51,8 +51,8 @@ class TokenizerTest {
     @Test
     void testTokenizeEmptyInput() {
         String input = "";
-        String[] expected = {};
-        assertArrayEquals(expected, Tokenizer.tokenize(input));
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> Tokenizer.tokenize(input));
+        assertEquals("Input string cannot be null or empty", exception.getMessage());
     }
 
     @Test
