@@ -1,6 +1,5 @@
 package noir;
 
-import noir.Expression;
 
 public class Or implements Expression {
     private final Expression left;
