@@ -1,4 +1,6 @@
-package src.main.java.noir;
+package src.main.java.noir.parsing;
+
+import src.main.java.noir.Expression;
 
 public class PropositionParser {
 

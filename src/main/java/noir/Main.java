@@ -1,5 +1,7 @@
 package src.main.java.noir;
 
+import src.main.java.noir.parsing.PropositionParser;
+
 public class Main {
     public static void main(String[] args) {
         String expression = "1 0 ->";

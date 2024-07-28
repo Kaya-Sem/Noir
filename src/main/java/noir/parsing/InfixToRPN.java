@@ -1,4 +1,4 @@
-package src.main.java.noir;
+package src.main.java.noir.parsing;
 
 import java.util.List;
 import java.util.Map;
