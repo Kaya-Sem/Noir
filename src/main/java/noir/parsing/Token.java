@@ -4,8 +4,8 @@ package noir.parsing;
  * The {@code Token} class represents a token in an expression.
  * Tokens can be variables, operators, functions, or parentheses.
  */
-class Token {
-    private final String type;
+public class Token {
+    private final TokenType type;
     private final String value;
     private int precedence;
     private boolean leftAssociative;
@@ -14,10 +14,10 @@ class Token {
      * Constructs a {@code Token} with the specified type and value.
      * This constructor is typically used for variables and parentheses.
      *
-     * @param type  the type of the token (e.g., "NUMBER", "LEFT_PAREN", "RIGHT_PAREN")
+     * @param type  the type of the token
      * @param value the value of the token as a string
      */
-    public Token(String type, String value) {
+    public Token(TokenType type, String value) {
         this.type = type;
         this.value = value;
     }
@@ -26,12 +26,12 @@ class Token {
      * Constructs a {@code Token} with the specified type, value, precedence, and associativity.
      * This constructor is typically used for operators.
      *
-     * @param type             the type of the token (e.g., "OPERATOR")
+     * @param type             the type of the token
      * @param value            the value of the token as a string
      * @param precedence       the precedence of the operator
      * @param leftAssociative  whether the operator is left associative
      */
-    public Token(String type, String value, int precedence, boolean leftAssociative) {
+    public Token(TokenType type, String value, int precedence, boolean leftAssociative) {
         this.type = type;
         this.value = value;
         this.precedence = precedence;
@@ -43,7 +43,7 @@ class Token {
      *
      * @return the type of the token
      */
-    public String getType() {
+    public TokenType getType() {
         return type;
     }
 
