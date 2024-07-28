@@ -1,6 +1,8 @@
-package src.main.java.noir;
+package noir;
 
-public class Or implements Expression{
+import noir.Expression;
+
+public class Or implements Expression {
     private final Expression left;
     private final Expression right;
 

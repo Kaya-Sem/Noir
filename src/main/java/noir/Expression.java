@@ -1,4 +1,4 @@
-package src.main.java.noir;
+package noir;
 
 public interface Expression {
     boolean evaluate();

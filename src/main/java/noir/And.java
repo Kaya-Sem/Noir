@@ -1,4 +1,4 @@
-package src.main.java.noir;
+package noir;
 
 public class And  implements Expression {
     private final Expression left;

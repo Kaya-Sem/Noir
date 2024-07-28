@@ -1,4 +1,4 @@
-package src.main.java.noir;
+package noir;
 
 public class Constant implements Expression{
     private final boolean value;

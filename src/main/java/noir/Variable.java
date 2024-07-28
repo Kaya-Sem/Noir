@@ -1,4 +1,4 @@
-package src.main.java.noir;
+package noir;
 
 public class Variable implements Expression {
     private boolean value;

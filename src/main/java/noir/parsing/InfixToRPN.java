@@ -1,10 +1,11 @@
-package src.main.java.noir.parsing;
+package noir.parsing;
 
 import java.util.List;
 import java.util.Map;
 
 /**
  * Convert tokens in infix notation to prefix notation.
+ *
  * @author Kayasem
  */
 public class InfixToRPN {

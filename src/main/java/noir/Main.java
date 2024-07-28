@@ -1,6 +1,7 @@
-package src.main.java.noir;
+package noir;
 
-import src.main.java.noir.parsing.PropositionParser;
+
+import noir.parsing.PropositionParser;
 
 public class Main {
     public static void main(String[] args) {
