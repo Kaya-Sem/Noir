@@ -1,4 +1,4 @@
-package src.main.java.noir.parsing;
+package noir.parsing;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -20,8 +20,13 @@ public class Tokenizer {
      *
      * @param input the input string containing logical propositions
      * @return an array of tokens extracted from the input string
+     * @throws IllegalArgumentException if the input is null or empty
      */
     public static String[] tokenize(String input) {
+        if (input == null || input.isEmpty()) {
+            throw new IllegalArgumentException("Input string cannot be null or empty");
+        }
+
         // Remove all whitespace from the input string
         input = input.replaceAll("\\s", "");
 
