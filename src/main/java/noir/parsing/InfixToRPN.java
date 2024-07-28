@@ -1,30 +1,63 @@
 package noir.parsing;
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
- * Convert tokens in infix notation to prefix notation.
+ * Convert tokens in infix notation to prefix notation with the Shunting yard algorithm.
  *
  * @author Kayasem
  */
 public class InfixToRPN {
-    private static final Map<String, Integer> precedenceMap = Map.of(
-            "!", 3,
-            "&&", 2,
-            "||", 1,
-            "->", 0
-    );
 
-    /**
-     * Converts an array of infix tokens and returns a list of tokens in RPN.
-     *
-     * @param infixTokens the array of tokens in infix notation
-     * @return the list of tokens in RPN
-     * @see <a href="https://en.wikipedia.org/wiki/Reverse_Polish_notation">Reverse Polish notation</a>
-     */
-    public static List<String> convertToRPN(String[] infixTokens) {
-        return null;
+    public static List<Token> convert(List<Token> tokens) {
+        List<Token> outputQueue = new ArrayList<>();
+        Deque<Token> operatorStack = new ArrayDeque<>();
 
+        for (Token token : tokens) {
+            switch (token.getType()) {
+                case VARIABLE:
+                    outputQueue.add(token);
+                    break;
+                case FUNCTION:
+                case LEFT_PAREN:
+                    operatorStack.push(token);
+                    break;
+                case OPERATOR:
+                    while (!operatorStack.isEmpty() &&
+                            operatorStack.peek().getType() != TokenType.LEFT_PAREN &&
+                            (operatorStack.peek().getPrecedence() > token.getPrecedence() ||
+                                    (operatorStack.peek().getPrecedence() == token.getPrecedence() &&
+                                            token.isLeftAssociative()))) {
+                        outputQueue.add(operatorStack.pop());
+                    }
+                    operatorStack.push(token);
+                    break;
+                case RIGHT_PAREN:
+                    while (!operatorStack.isEmpty() && operatorStack.peek().getType() != TokenType.LEFT_PAREN) {
+                        outputQueue.add(operatorStack.pop());
+                    }
+                    if (operatorStack.isEmpty()) {
+                        throw new IllegalArgumentException("Mismatched parentheses");
+                    }
+                    operatorStack.pop(); // Pop the left parenthesis and discard it
+                    if (!operatorStack.isEmpty() && operatorStack.peek().getType() == TokenType.FUNCTION) {
+                        outputQueue.add(operatorStack.pop());
+                    }
+                    break;
+                default:
+                    throw new IllegalArgumentException("Unknown token type: " + token.getType());
+            }
+        }
+
+        while (!operatorStack.isEmpty()) {
+            Token token = operatorStack.pop();
+            if (token.getType() == TokenType.LEFT_PAREN || token.getType() == TokenType.RIGHT_PAREN) {
+                throw new IllegalArgumentException("Mismatched parentheses");
+            }
+            outputQueue.add(token);
+        }
+
+        return outputQueue;
     }
+
 }
