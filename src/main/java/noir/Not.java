@@ -1,3 +1,5 @@
+package src.main.java.noir;
+
 public class Not implements Expression {
     private final Expression operand;
 

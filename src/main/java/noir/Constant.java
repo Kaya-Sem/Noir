@@ -1,3 +1,5 @@
+package src.main.java.noir;
+
 public class Constant implements Expression{
     private final boolean value;
 

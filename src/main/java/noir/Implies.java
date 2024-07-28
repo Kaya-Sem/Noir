@@ -1,3 +1,5 @@
+package src.main.java.noir;
+
 public class Implies implements Expression {
     private final Expression premise;
     private final Expression conclusion;

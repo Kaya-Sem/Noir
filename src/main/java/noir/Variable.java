@@ -1,3 +1,5 @@
+package src.main.java.noir;
+
 public class Variable implements Expression {
     private boolean value;
 

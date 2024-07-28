@@ -1,3 +1,5 @@
+package src.main.java.noir;
+
 public class Main {
     public static void main(String[] args) {
         String expression = "1 0 ->";
